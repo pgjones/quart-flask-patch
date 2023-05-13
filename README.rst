@@ -1,7 +1,7 @@
 Quart-Flask-Patch
 =================
 
-|Build Status| |docs| |pypi| |python| |license|
+|Build Status| |pypi| |python| |license|
 
 Quart-Flask-Patch is a Quart extension that patches Quart to work with
 Flask extensions.
@@ -123,9 +123,6 @@ can't find an answer please `open an issue
 
 .. |Build Status| image:: https://github.com/pgjones/quart-flask-patch/actions/workflows/ci.yml/badge.svg
    :target: https://github.com/pgjones/quart-flask-patch/commits/main
-
-.. |docs| image:: https://readthedocs.org/projects/quart-flask-patch/badge/?version=latest&style=flat
-   :target: https://quart-flask-patch.readthedocs.io/en/latest/
 
 .. |pypi| image:: https://img.shields.io/pypi/v/quart-flask-patch.svg
    :target: https://pypi.python.org/pypi/Quart-Flask-Patch/
