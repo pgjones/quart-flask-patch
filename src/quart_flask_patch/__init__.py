@@ -4,6 +4,7 @@ import quart  # isort:skip # noqa: F401
 import quart_flask_patch.app  # isort:skip
 import quart_flask_patch.cli  # isort:skip # noqa: F401
 import quart_flask_patch.globals  # isort:skip # noqa: F401
+import quart_flask_patch.helpers  # isort:skip # noqa: F401
 import quart_flask_patch.testing  # isort:skip # noqa: F401
 import quart.views  # isort:skip # noqa: F401
 from quart_flask_patch._patch import patch_all  # isort:skip
@@ -41,7 +42,6 @@ from flask.signals import (  # noqa: E402
     request_finished,
     request_started,
     request_tearing_down,
-    signals_available,
     template_rendered,
 )
 from flask.templating import render_template, render_template_string  # noqa: E402
@@ -88,7 +88,6 @@ __all__ = (
     "send_file",
     "send_from_directory",
     "session",
-    "signals_available",
     "stream_with_context",
     "template_rendered",
     "url_for",

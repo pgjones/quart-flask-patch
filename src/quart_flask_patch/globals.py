@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Any, AnyStr
+from typing import Any, Union
 
 from quart.globals import (
     _cv_app,
@@ -43,7 +43,7 @@ class FlaskRequestProxy(LocalProxy):
     def get_json(self, *args: Any, **kwargs: Any) -> Any:
         return sync_with_context(self._get_current_object().get_json(*args, **kwargs))
 
-    def get_data(self, *args: Any, **kwargs: Any) -> AnyStr:
+    def get_data(self, *args: Any, **kwargs: Any) -> Union[str, bytes]:
         return sync_with_context(self._get_current_object().get_data(*args, **kwargs))
 
 

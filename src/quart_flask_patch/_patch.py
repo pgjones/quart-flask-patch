@@ -98,9 +98,6 @@ def _convert_module(new_name, module):  # type: ignore
 
 
 def _patch_modules() -> None:
-    if "flask" in sys.modules:
-        raise ImportError("Cannot mock flask, already imported")
-
     # Create a set of Flask modules, prioritising those within the
     # flask_patch namespace over simple references to the Quart
     # versions.
@@ -111,10 +108,6 @@ def _patch_modules() -> None:
         elif name.startswith("quart_flask_patch"):
             setattr(module, "_QUART_PATCHED", True)
             flask_modules[name.replace("quart_flask_patch", "flask")] = module
-        elif name.startswith("quart.") and not name.startswith("quart.serving"):
-            flask_name = name.replace("quart.", "flask.")
-            if flask_name not in flask_modules:
-                flask_modules[flask_name] = _convert_module(flask_name, module)
 
     sys.modules.update(flask_modules)
 
