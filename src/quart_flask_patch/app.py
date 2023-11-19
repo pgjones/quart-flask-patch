@@ -5,14 +5,13 @@
 from __future__ import annotations
 
 from functools import wraps
-from inspect import iscoroutine
+from inspect import iscoroutine, iscoroutinefunction
 from typing import Any, Awaitable, Callable, Optional, Union
 
 from quart import Response
 from quart.app import Quart
 from quart.ctx import RequestContext
 from quart.globals import request_ctx
-from quart.utils import is_coroutine_function
 from werkzeug.wrappers import Response as WerkzeugResponse
 
 from ._synchronise import sync_with_context
@@ -34,7 +33,7 @@ Quart.full_dispatch_request = new_full_dispatch_request  # type: ignore
 def new_ensure_async(  # type: ignore
     self, func: Callable[..., Any]
 ) -> Callable[..., Awaitable[Any]]:
-    if is_coroutine_function(func):
+    if iscoroutinefunction(func):
         return func
     else:
 
@@ -53,7 +52,7 @@ Quart.ensure_async = new_ensure_async  # type: ignore
 
 
 def ensure_sync(self, func: Callable) -> Callable:  # type: ignore
-    if is_coroutine_function(func):
+    if iscoroutinefunction(func):
 
         @wraps(func)
         def _wrapper(*args: Any, **kwargs: Any) -> Any:
