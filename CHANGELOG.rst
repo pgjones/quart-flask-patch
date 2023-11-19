@@ -1,3 +1,9 @@
+0.3.0 2023-11-19
+----------------
+
+* Bugfix use iscoroutinefunction from inspect (rather than Quart's).
+* Support 3.12 drop 3.7.
+
 0.2.0 2023-10-22
 ----------------
 

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "quart-flask-patch"
-version = "0.2.0"
+version = "0.3.0"
 description = "Quart-Flask-Patch is a Quart extension that patches Quart to work with Flask extensions."
 authors = ["pgjones <philip.graham.jones@googlemail.com>"]
 classifiers = [
