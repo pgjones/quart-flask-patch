@@ -18,7 +18,9 @@ def _patch_asyncio() -> None:
     asyncio.Task = asyncio.tasks._CTask = asyncio.tasks.Task = asyncio.tasks._PyTask  # type: ignore
     asyncio.Future = (  # type: ignore
         asyncio.futures._CFuture  # type: ignore
-    ) = asyncio.futures.Future = asyncio.futures._PyFuture  # type: ignore # noqa
+    ) = (
+        asyncio.futures.Future  # type: ignore
+    ) = asyncio.futures._PyFuture  # type: ignore
 
     current_policy = asyncio.get_event_loop_policy()
     if hasattr(asyncio, "unix_events"):
